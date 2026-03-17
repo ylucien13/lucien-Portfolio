@@ -254,6 +254,28 @@
             font-weight: 600;
         }
 
+        /* Animation de base */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Application à chaque item avec un délai progressif */
+        .timeline-item {
+            opacity: 0; /* Caché au départ */
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+
         /* --- Conteneur Principal --- */
         .timeline {
             position: relative;
