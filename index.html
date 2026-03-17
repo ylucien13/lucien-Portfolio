@@ -268,44 +268,54 @@
             font-weight: 600;
         }
 
-        /* Conteneur de la barre */
+        /* === CSS CORRIGÉ POUR UNE GRANDE BARRE === */
+        
+        /* Conteneur principal (l'arrière-plan sombre) */
         .progress-container {
-            width: 100%;
-            background-color: #1a1a1a; /* Fond sombre */
-            border-radius: 10px;
-            margin-top: 10px;
-            height: 12px;
+            width: 100%;             /* Occupe toute la largeur disponible de lang-item */
+            background-color: #1a1a1a; /* Fond noir sombre */
+            border-radius: 12px;
+            margin-top: 15px;
+            height: 18px;            /* HAUTEUR AUGMENTÉE (plus grande/épaisse) */
             overflow: hidden;
-            border: 1px solid #333;
+            border: 1px solid #333; /* Contour fin */
+            position: relative;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5); /* Effet de profondeur */
         }
         
-        /* La barre elle-même */
+        /* La barre de progression (le remplissage) */
         .progress-bar {
             height: 100%;
-            background: linear-gradient(90deg, #00ff9d, #00d4ff); /* Dégradé Cyber */
-            box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
+            /* Utilisation du dégradé Cyber original */
+            background: linear-gradient(90deg, #00ff9d, #00d4ff); 
+            border-radius: 10px;
             transition: width 1.5s ease-in-out; /* Animation fluide */
             position: relative;
+            
+            /* Effet Néon (Glow) pour une visibilité 70% supérieure */
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.7);
         }
         
         /* Texte du pourcentage (apparaît au survol) */
         .progress-text {
-            font-size: 10px;
-            color: #000;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 11px;
+            color: #000;              /* Texte noir sur barre claire */
             font-weight: bold;
-            padding-right: 5px;
-            opacity: 0;
+            font-family: 'JetBrains Mono', monospace;
+            opacity: 0;              /* Caché par défaut */
             transition: opacity 0.3s;
         }
         
+        /* Afficher le texte au survol de la langue */
         .lang-item:hover .progress-text {
             opacity: 1;
         }
         
-        /* Animation de "pulse" sur la barre */
+        /* Animation "Scan" optionnelle pour un look Cyber */
         .progress-bar::after {
             content: '';
             position: absolute;
