@@ -1,3 +1,5 @@
+![Bannière Lucien YAOGO](Bannière.png)
+
 # Hi, I'm Lucien YAOGO 👋
 
 ### 🛡️ Cybersecurity Student & IT Infrastructure Specialist
