@@ -93,11 +93,16 @@
 
                     showStatus("✅ Message envoyé avec succès !", "success");
                     contactForm.reset();
-
+   
+                    // Redirection après un court délai
+                    setTimeout(() => {
+                        window.location.href = "merci.html";
+                    }, 1500);
+                 
                 } else {
 
                     showStatus("❌ Erreur lors de l'envoi.", "error");
-
+                    setLoading(false);
                 }
 
             } catch (error) {
