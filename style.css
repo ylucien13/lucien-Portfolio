@@ -254,6 +254,97 @@
             font-weight: 600;
         }
 
+        /* --- Conteneur Principal --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px 0;
+        }
+        
+        /* --- La ligne verticale centrale (ou latérale) --- */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: rgba(0, 255, 204, 0.1); /* Ligne discrète */
+        }
+        
+        /* --- Chaque bloc d'étude --- */
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 60px; /* Espace pour la ligne et le point */
+            transition: all 0.3s ease;
+        }
+        
+        /* --- Le point sur la ligne --- */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #1a1a1a;
+            border: 2px solid #00ffcc;
+            border-radius: 50%;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        /* --- Styles des textes --- */
+        .timeline-date {
+            display: inline-block;
+            color: #00ffcc;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-subtitle {
+            color: #888;
+            font-size: 0.95rem;
+        }
+        
+        /* --- EFFETS AU SURVOL (Hover) --- */
+        
+        .timeline-item:hover {
+            transform: translateX(10px); /* Décalage fluide vers la droite */
+        }
+        
+        .timeline-item:hover::after {
+            background: #00ffcc;
+            box-shadow: 0 0 15px #00ffcc; /* Le point s'illumine */
+        }
+        
+        .timeline-item:hover .timeline-title {
+            color: #00ffcc; /* Le titre change de couleur */
+        }
+        
+        /* Ajout d'une bordure latérale néon au bloc (optionnel pour matcher tes images) */
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px 20px 20px 60px;
+            border-radius: 8px;
+            border-left: 3px solid transparent;
+        }
+        
+        .timeline-item:hover {
+            border-left: 3px solid #00ffcc;
+            background: rgba(0, 255, 204, 0.05);
+        }
+
         #skills {
             padding: 100px 0;
             background: #0f0f0f;
