@@ -217,3 +217,11 @@
        labCards.forEach(card => {
            revealObserver.observe(card);
        });
+
+     // --- Effet de Tilt 3D sur les cartes ---
+       VanillaTilt.init(document.querySelectorAll(".lab-card"), {
+           max: 8,          // Inclinaison maximale (en degrés)
+           speed: 500,        // Vitesse de transition
+           glare: true,       // Effet de reflet
+           "max-glare": 0.2,   // Intensité maximale du reflet
+       });
