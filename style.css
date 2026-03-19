@@ -199,34 +199,36 @@
             cursor: pointer;
         }
 
-        /* L'animation de scintillement (Flicker) */
-        @keyframes neon-flicker {
+        /* L'animation de scintillement (Flicker) - VERSION ADOUCIE */
+        @keyframes neon-flicker-soft {
             0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                /* Nous avons supprimé les lueurs les plus larges (40px, 80px) */
                 text-shadow: 
-                    0 0 4px #fff,
-                    0 0 11px #fff,
-                    0 0 19px #fff,
-                    0 0 40px #00ff9d,
-                    0 0 80px #00ff9d;
+                    0 0 2px #fff,            /* Centre du texte blanc, très fin */
+                    0 0 5px #00ff9d,         /* Première lueur verte plus proche */
+                    0 0 10px rgba(0, 255, 157, 0.6); /* Lueur diffuse externe atténuée */
                 opacity: 1;
             }
             20%, 24%, 55% {
                 text-shadow: none;
-                opacity: 0.5;
+                opacity: 0.7;                /* Moins d'opacité lors du "bug" pour un scintillement subtil */
             }
         }
         
-        /* Application de l'effet au logo */
+        /* Application de l'effet au logo - Version Adoucie */
         .logo.glitch-text {
-            /* ... tes styles précédents ... */
-            animation: neon-flicker 3s infinite alternate;
+            /* ... tes styles précédents de position, font-weight, etc. ... */
+            
+            /* On utilise la nouvelle animation adoucie */
+            animation: neon-flicker-soft 4s infinite alternate; /* Légèrement plus lent pour plus de douceur */
+            transition: text-shadow 0.3s ease; /* Transition douce pour le survol */
         }
         
-        /* On garde le glitch au survol par-dessus le scintillement */
+        /* On garde le glitch net au survol, avec un Glow également adouci */
         .logo.glitch-text:hover {
-            animation: none; /* On stoppe le scintillement pour laisser place au glitch net */
+            animation: none; /* On stoppe le scintillement */
             color: #00ff9d;
-            text-shadow: 0 0 8px rgba(0, 255, 157, 0.8);
+            text-shadow: 0 0 4px rgba(0, 255, 157, 0.5); /* Glow de survol diminué */
         }
 
         #hero {
