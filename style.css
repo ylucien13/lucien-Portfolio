@@ -199,6 +199,36 @@
             cursor: pointer;
         }
 
+        /* L'animation de scintillement (Flicker) */
+        @keyframes neon-flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 
+                    0 0 4px #fff,
+                    0 0 11px #fff,
+                    0 0 19px #fff,
+                    0 0 40px #00ff9d,
+                    0 0 80px #00ff9d;
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+                opacity: 0.5;
+            }
+        }
+        
+        /* Application de l'effet au logo */
+        .logo.glitch-text {
+            /* ... tes styles précédents ... */
+            animation: neon-flicker 3s infinite alternate;
+        }
+        
+        /* On garde le glitch au survol par-dessus le scintillement */
+        .logo.glitch-text:hover {
+            animation: none; /* On stoppe le scintillement pour laisser place au glitch net */
+            color: #00ff9d;
+            text-shadow: 0 0 8px rgba(0, 255, 157, 0.8);
+        }
+
         #hero {
             height: 100vh;
             background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)), url('https://image.qwenlm.ai/public_source/e5ba75ec-3247-4f2e-80d6-20a1c8b42a0f/179429e9d-bfb5-426a-9f60-690ef22f90c7.png');
